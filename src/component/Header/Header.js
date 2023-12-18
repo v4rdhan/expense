@@ -1,5 +1,5 @@
 import Avatar from "@mui/material/Avatar";
-import AppDrawer from './Drawer'
+import AppDrawer from '../Drawer/Drawer'
 import "./Header.css";
 
 export default function Header() {
