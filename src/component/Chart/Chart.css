@@ -1,0 +1,8 @@
+#chaertMian{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #chartCSS {
+    width: 70%;
+  }
