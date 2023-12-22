@@ -1,7 +1,7 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 import "./Chart.css";
-
+import {labels} from "../../constants/constants";
 import {
   Chart as ChartJS,
   LineElement,
@@ -31,25 +31,12 @@ export default function Chart({ expectationValue, setExpectationValue }) {
     return array;
   }
 
-  const labels = {
-    month: [
-      "",
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ],
-  };
+  // const labels = {
+  //   month: [
+  //   ],
+  // };
   const data = {
-    labels: labels.month,
+    labels: labels.Month,
     datasets: [
       {
         label: "Expectation",
