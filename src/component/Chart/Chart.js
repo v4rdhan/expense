@@ -23,9 +23,9 @@ ChartJS.register(
 
 export default function Chart({ expectationValue, setExpectationValue }) {
   function getExpectationArray(number) {
-    let s = number / 12;
-    let array = [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    for (let i = 0; i <= 12; i++) {
+    let s = number / 13;
+    let array = [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    for (let i = 0; i <= 13; i++) {
       array[i] = i * s;
     }
     return array;
@@ -33,6 +33,7 @@ export default function Chart({ expectationValue, setExpectationValue }) {
 
   const labels = {
     month: [
+      "",
       "January",
       "February",
       "March",

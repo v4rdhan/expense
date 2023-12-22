@@ -1,0 +1,17 @@
+.align-inputs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 3rem;
+}
+
+.month-input {
+  width: 10rem;
+}
+
+.center {
+  text-align: center;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
