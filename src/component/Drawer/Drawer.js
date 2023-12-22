@@ -106,26 +106,44 @@ export default function AppDrawer() {
                   id="demo-simple-select"
                   // value={age}
                   label="Month"
-                  // onChange={handleChange}
+                // onChange={handleChange}
                 >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
-              <TextField
-                id="outlined-basic"
-                label="Per Month Expense"
-                variant="outlined"
-              />
-            </div>
-          </Typography>
-          <Stack spacing={2} direction="row" className="center">
-            <Button variant="contained">Add to Expense</Button>
-            <Button variant="outlined">Cancel</Button>
-          </Stack>
-        </Box>
-      </Modal>
-    </div>
+
+                  {
+                  [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                  ].map((val)=>< MenuItem value={val} key={val}>{val}</MenuItem>)
+                    
+                    
+                  }
+
+
+              </Select>
+            </FormControl>
+            <TextField
+              id="outlined-basic"
+              label="Per Month Expense"
+              variant="outlined"
+            />
+          </div>
+        </Typography>
+        <Stack spacing={2} direction="row" className="center">
+          <Button variant="contained">Add to Expense</Button>
+          <Button variant="outlined">Cancel</Button>
+        </Stack>
+      </Box>
+    </Modal>
+    </div >
   );
 }
