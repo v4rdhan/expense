@@ -47,8 +47,11 @@ export default function AppDrawer() {
   };
 
   const [open, setOpen] = useState(false);
+  const [removeOpen, setRemoveOpen] = useState(false);
   const handleOpen = () => setOpen(true);
+  const handleOpenRemove = () => setRemoveOpen(true);
   const handleClose = () => setOpen(false);
+  const handleRemove = () => setRemoveOpen(false)
 
   const list = (anchor) => (
     <Box
@@ -61,6 +64,13 @@ export default function AppDrawer() {
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemText primary={"Add Expense"} onClick={handleOpen} />
+          </ListItemButton>
+
+          <ListItemButton>
+            <ListItemText
+              primary={"Remove Expense"}
+              onClick={handleOpenRemove}
+            />
           </ListItemButton>
         </ListItem>
       </List>
@@ -85,14 +95,18 @@ export default function AppDrawer() {
         </React.Fragment>
       }
       <Modal
-        open={open}
+        open={open || removeOpen}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            <h3 className="center">Monthly Expense</h3>
+            {open ? (
+              <h3 className="center">Monthly Expense</h3>
+            ) : (
+              <h3 className="center">Remove Monthly Expense</h3>
+            )}
             <div className="align-inputs">
               <FormControl className="month-input">
                 <InputLabel
@@ -106,11 +120,9 @@ export default function AppDrawer() {
                   id="demo-simple-select"
                   // value={age}
                   label="Month"
-                // onChange={handleChange}
+                  // onChange={handleChange}
                 >
-
-                  {
-                  [
+                  {[
                     "January",
                     "February",
                     "March",
@@ -123,27 +135,30 @@ export default function AppDrawer() {
                     "October",
                     "November",
                     "December",
-                  ].map((val)=>< MenuItem value={val} key={val}>{val}</MenuItem>)
-                    
-                    
-                  }
-
-
-              </Select>
-            </FormControl>
-            <TextField
-              id="outlined-basic"
-              label="Per Month Expense"
-              variant="outlined"
-            />
-          </div>
-        </Typography>
-        <Stack spacing={2} direction="row" className="center">
-          <Button variant="contained">Add to Expense</Button>
-          <Button variant="outlined">Cancel</Button>
-        </Stack>
-      </Box>
-    </Modal>
-    </div >
+                  ].map((val) => (
+                    <MenuItem value={val} key={val}>
+                      {val}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              {open ? (
+                <TextField
+                  id="outlined-basic"
+                  label="Per Month Expense"
+                  variant="outlined"
+                />
+              ) : (
+                ""
+              )}
+            </div>
+          </Typography>
+          <Stack spacing={2} direction="row" className="center">
+            <Button variant="contained"> {open ? 'Add to Expense' : 'Remove Expense'}</Button>
+            <Button variant="outlined" onClick={()=>{handleClose();handleRemove()}}>Cancel</Button>
+          </Stack>
+        </Box>
+      </Modal>
+    </div>
   );
 }
