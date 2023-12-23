@@ -51,7 +51,7 @@ export default function AppDrawer() {
   const handleOpen = () => setOpen(true);
   const handleOpenRemove = () => setRemoveOpen(true);
   const handleClose = () => setOpen(false);
-  const handleRemove = () => setRemoveOpen(false)
+  const handleRemove = () => setRemoveOpen(false);
 
   const list = (anchor) => (
     <Box
@@ -154,8 +154,19 @@ export default function AppDrawer() {
             </div>
           </Typography>
           <Stack spacing={2} direction="row" className="center">
-            <Button variant="contained"> {open ? 'Add to Expense' : 'Remove Expense'}</Button>
-            <Button variant="outlined" onClick={()=>{handleClose();handleRemove()}}>Cancel</Button>
+            <Button variant="contained">
+              {" "}
+              {open ? "Add to Expense" : "Remove Expense"}
+            </Button>
+            <Button
+              variant="outlined"
+              onClick={() => {
+                handleClose();
+                handleRemove();
+              }}
+            >
+              Cancel
+            </Button>
           </Stack>
         </Box>
       </Modal>
