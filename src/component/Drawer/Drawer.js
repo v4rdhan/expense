@@ -59,14 +59,14 @@ export default function AppDrawer({ expenseValues, setExpenseValues, Labels }) {
     let arr = [...expenseValues];
     arr = arr.map((c, i) => {
       if (i >= monthIndex) {
-        return value;
+        return Number(c) + Number(value);
       } else {
         return c;
       }
     });
 
     setExpenseValues(arr);
-    console.log(arr, expenseValues);
+    console.log(typeof arr);
   }
 
   const list = (anchor) => (
