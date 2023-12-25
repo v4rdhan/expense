@@ -1,7 +1,7 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 import "./Chart.css";
-import {labels} from "../../constants/constants";
+import { labels } from "../../constants/constants";
 import {
   Chart as ChartJS,
   LineElement,
@@ -21,7 +21,12 @@ ChartJS.register(
   Tooltip
 );
 
-export default function Chart({ expectationValue, setExpectationValue }) {
+export default function Chart({
+  expectationValue,
+  setExpectationValue,
+  expenseValues,
+  // Labels,
+}) {
   function getExpectationArray(number) {
     let s = number / 13;
     let array = [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -34,9 +39,10 @@ export default function Chart({ expectationValue, setExpectationValue }) {
   // const labels = {
   //   month: [
   //   ],
-  // };
+  // };x
   const data = {
-    labels: labels.Month,
+    labels: labels.Months.map((e) => e.label),
+
     datasets: [
       {
         label: "Expectation",
@@ -50,7 +56,7 @@ export default function Chart({ expectationValue, setExpectationValue }) {
       },
       {
         label: "Reality",
-        data: getExpectationArray(10),
+        data: expenseValues,
         backgroundColor: "#FF0000",
         borderColor: "#FF0000",
         pointBorderColor: "#FF0000",
@@ -60,6 +66,7 @@ export default function Chart({ expectationValue, setExpectationValue }) {
       },
     ],
   };
+  console.log(labels.Months[0].name);
   const options = {
     Plugin: {
       legend: true,

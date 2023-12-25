@@ -7,11 +7,17 @@ import { labels } from "./constants/constants.js";
 
 function App() {
   const [expectationValue, setExpectationValue] = useState(0);
-  const [expenseValues, setExpenseValues] = useState([]);
-  const months = labels;
+  const [expenseValues, setExpenseValues] = useState([
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  ]);
+  const Labels = labels;
   return (
     <div className="App">
-      <Header></Header>
+      <Header
+        Labels={Labels}
+        expenseValues={expenseValues}
+        setExpenseValues={setExpenseValues}
+      ></Header>
       <Expectation
         expectationValue={expectationValue}
         setExpectationValue={setExpectationValue}
@@ -20,7 +26,8 @@ function App() {
       <Chart
         expectationValue={expectationValue}
         setExpectationValue={setExpectationValue}
-        months={months}
+        expenseValues={expenseValues}
+        // Labels={Labels}
       ></Chart>
     </div>
   );

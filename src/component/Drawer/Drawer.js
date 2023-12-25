@@ -30,7 +30,7 @@ const style = {
   p: 4,
 };
 
-export default function AppDrawer() {
+export default function AppDrawer({ expenseValues, setExpenseValues, Labels }) {
   const [state, setState] = React.useState({
     left: false,
   });
@@ -52,6 +52,22 @@ export default function AppDrawer() {
   const handleOpenRemove = () => setRemoveOpen(true);
   const handleClose = () => setOpen(false);
   const handleRemove = () => setRemoveOpen(false);
+  const [monthIndex, setMonthIndex] = useState(0);
+  // console.log(monthIndex);
+
+  function handleSetExpenseValue(value) {
+    let arr = [...expenseValues];
+    arr = arr.map((c, i) => {
+      if (i >= monthIndex) {
+        return value;
+      } else {
+        return c;
+      }
+    });
+
+    setExpenseValues(arr);
+    console.log(arr, expenseValues);
+  }
 
   const list = (anchor) => (
     <Box
@@ -116,37 +132,53 @@ export default function AppDrawer() {
                   Month
                 </InputLabel>
                 <Select
+                  // onSelect={(monthIndex = months.Month.getIndex())}
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   // value={age}
                   label="Month"
+                  onChange={(e) => setMonthIndex(e.target.value)}
                   // onChange={handleChange}
+                  // [
+                  //   "January",
+                  //   "February",
+                  //   "March",
+                  //   "April",
+                  //   "May",
+                  //   "June",
+                  //   "July",
+                  //   "August",
+                  //   "September",
+                  //   "October",
+                  //   "November",
+                  //   "December",
+                  // ]
                 >
-                  {[
-                    "January",
-                    "February",
-                    "March",
-                    "April",
-                    "May",
-                    "June",
-                    "July",
-                    "August",
-                    "September",
-                    "October",
-                    "November",
-                    "December",
-                  ].map((val) => (
-                    <MenuItem value={val} key={val}>
-                      {val}
+                  {Labels.Months.map((months) => (
+                    <MenuItem
+                      value={months.id}
+                      key={months.id}
+                      // onChange={(event) => setMonthIndex(event.target.key)}
+                      // onFocus={(event) =>
+                      //   setMonthIndex(Number(event.target.key))
+                      // }
+                    >
+                      {months.name}
+                      {/* {console.log(monthIndex)} */}
                     </MenuItem>
                   ))}
+                  {/* {console.log(monthIndex)} */}
                 </Select>
               </FormControl>
+
               {open ? (
                 <TextField
                   id="outlined-basic"
                   label="Per Month Expense"
                   variant="outlined"
+                  onChange={(event) =>
+                    handleSetExpenseValue(event.target.value)
+                  }
                 />
               ) : (
                 ""
