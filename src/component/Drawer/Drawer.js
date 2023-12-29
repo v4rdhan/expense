@@ -138,6 +138,8 @@ export default function AppDrawer({ expenseValues, setExpenseValues, Labels }) {
                   // value={age}
                   label="Month"
                   onChange={(e) => setMonthIndex(e.target.value)}
+                  // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  // |||||||||||||||||||||||||||||||||||||||||||------ "onChange" to "onClick"
                   // onChange={handleChange}
                   // [
                   //   "January",
