@@ -1,34 +1,21 @@
 import "./App.css";
-import Header from "./component/Header/Header";
-import Expectation from "./component/Exp-Rel/Expectation";
-import Chart from "./component/Chart/Chart.js";
-import { useState } from "react";
-import { labels } from "./constants/constants.js";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import LoginPage from "./pages/loginPage/LoginPage"
+import NoPage from "./pages/NoPage";
 
 function App() {
-  const [expectationValue, setExpectationValue] = useState(0);
-  const [expenseValues, setExpenseValues] = useState([
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  ]);
-  const Labels = labels;
   return (
     <div className="App">
-      <Header
-        Labels={Labels}
-        expenseValues={expenseValues}
-        setExpenseValues={setExpenseValues}
-      ></Header>
-      <Expectation
-        expectationValue={expectationValue}
-        setExpectationValue={setExpectationValue}
-        // months={months}
-      ></Expectation>
-      <Chart
-        expectationValue={expectationValue}
-        setExpectationValue={setExpectationValue}
-        expenseValues={expenseValues}
-        // Labels={Labels}
-      ></Chart>
+      <BrowserRouter>
+       <Routes>
+        <Route index element={<LoginPage/>}/>
+        <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/home" element={<Home/>}/>
+        <Route path="*" element={<NoPage/>}/>
+       </Routes>
+      </BrowserRouter>
     </div>
   );
 }
