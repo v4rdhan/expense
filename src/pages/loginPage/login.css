@@ -21,18 +21,6 @@
     width: 100%;
 }
 
-.formLabel {
-    position: absolute;
-    top: 18%;
-    transition: .4s ease-in-out;
-}
-
-.form-Label {
-    position: absolute;
-    top: 40%;
-    transition: .4s ease-in-out;
-}
-
 .title {
     width: 100%;
     display: flex;
@@ -84,26 +72,25 @@
     padding: 6px 10px;
     transition: .4s ease-in-out;
 }
-.formControl:focus{
+
+.formControl:focus {
     outline: 2px solid wheat;
+}
+
+.formLabel {
+    position: absolute;
+    top: -72%;
+    transition: .4s ease-in-out;
+}
+
+.labelAction {
+    position: relative;
 }
 
 .labelAction input:focus+label {
     position: absolute;
-    top: 22%;
-    left: 10%;
-    background: rgba(255, 255, 255, 0.54);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(17px);
-    -webkit-backdrop-filter: blur(17px);
-    border-radius: 12px;
-    padding: 0 8px;
-}
-
-.labelAction1 input:focus+label {
-    position: absolute;
-    top: 44%;
-    left: 10%;
+    top: -33%;
+    left: 5%;
     background: rgba(255, 255, 255, 0.54);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(17px);

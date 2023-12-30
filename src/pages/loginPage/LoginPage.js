@@ -17,9 +17,9 @@ export default function LoginPage() {
             <input type="email" className="formControl" id="exampleInputEmail1" aria-describedby="emailHelp" />
             <label htmlFor="exampleInputEmail1" className="formLabel" >Email address</label>
           </div>
-          <div className='labelAction1 width-100 d-flex flex-column justify-content-center align-items-start'>
+          <div className='labelAction width-100 d-flex flex-column justify-content-center align-items-start'>
             <input type="password" className="formControl" id="exampleInputPassword1" />
-            <label htmlFor="exampleInputPassword1" className="form-Label">Password</label>
+            <label htmlFor="exampleInputPassword1" className="formLabel">Password</label>
           </div>
           <div className='width-100 forgotPassword p-2 d-flex justify-content-center align-items-center'>
             <a href="/">Forgot Password</a>
@@ -31,8 +31,6 @@ export default function LoginPage() {
           </div>
         </div>
       </div>
-
-      <Link to="/home">Home</Link>
 
     </div>
   )
