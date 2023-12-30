@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "./login.css";
 // import loginBg from './loginBg.png'
+import Input from '../../component/input/Input';
 
 export default function LoginPage() {
   return (
@@ -13,14 +14,20 @@ export default function LoginPage() {
             <p className='mx-3'>Login</p>
             <p className='mx-3 inActive'>Signin</p>
           </div>
-          <div className='labelAction width-100 d-flex flex-column justify-content-center align-items-start mb-5 mt-3'>
+          {/* <div className='labelAction width-100 d-flex flex-column justify-content-center align-items-start mb-5 mt-3'>
             <input type="email" className="formControl" id="exampleInputEmail1" aria-describedby="emailHelp" />
             <label htmlFor="exampleInputEmail1" className="formLabel" >Email address</label>
-          </div>
-          <div className='labelAction width-100 d-flex flex-column justify-content-center align-items-start'>
+          </div> */}
+
+          <Input type='email' className='formControl width-100' id="exampleInputEmail1" aria-describedby="emailHelp" >Email address</Input>
+
+          {/* <div className='labelAction width-100 d-flex flex-column justify-content-center align-items-start'>
             <input type="password" className="formControl" id="exampleInputPassword1" />
             <label htmlFor="exampleInputPassword1" className="formLabel">Password</label>
-          </div>
+          </div> */}
+
+<Input type="password" className="formControl" id="exampleInputPassword1">Password</Input> 
+
           <div className='width-100 forgotPassword p-2 d-flex justify-content-center align-items-center'>
             <a href="/">Forgot Password</a>
           </div>
